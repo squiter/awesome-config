@@ -40,6 +40,13 @@ theme.useless_gap         = 2  -- useless gap
 
 -- theme.wallpaper = theme.path .. "/wallpaper/primary.png" -- wallpaper file
 
+local f = io.popen("sh -c \"find ~/dropbox/wallpapers-ultrawide/persona-wp/ -name '*.png' | shuf -n 1 | xargs echo -n\"")
+local wallpaper = f:read("*all")
+f:close()
+for s = 1, screen.count() do
+  theme.wallpaper = wallpaper
+end
+
 -- Fonts
 ------------------------------------------------------------
 theme.fonts = {
