@@ -94,6 +94,12 @@ local function client_numkey(i, mod, action)
 	)
 end
 
+-- {{{ Spotify
+function sendToSpotify(command)
+  return function ()
+    awful.util.spawn_with_shell("dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player." .. command)
+  end
+end
 
 -- Build hotkeys depended on config parameters
 -----------------------------------------------------------------------------------------------------------------------
@@ -436,14 +442,29 @@ function hotkeys:init(args)
                    { description = "Take a screenshot", group = "Main" }
 		},
                 {
-                   { env.mod }, "XF86AudioRaiseVolume", function() awful.util.spawn("amixer set Master 2+") end,
+                   { }, "XF86AudioRaiseVolume", function() awful.util.spawn("amixer set Master 2+") end,
                    { description = "Increase volume", group = "Main" }
 		},
 		{
-                   { env.mod }, "XF86AudioLowerVolume", function() awful.util.spawn("amixer set Master 2-") end,
+                   { }, "XF86AudioLowerVolume", function() awful.util.spawn("amixer set Master 2-") end,
                    { description = "Decrease volume", group = "Main" }
 		},
-
+                {
+                   { }, "XF86AudioPlay", sendToSpotify("PlayPause"),
+                   { description = "Play Pause", group = "Spotify" }
+                },
+                {
+                   { }, "XF86AudioNext", sendToSpotify("Next"),
+                   { description = "Next", group = "Spotify" }
+                },
+                {
+                   { }, "XF86AudioPrev", sendToSpotify("Previous"),
+                   { description = "Previous", group = "Spotify" }
+                },
+                {
+                   { }, "XF86AudioStop", sendToSpotify("Stop"),
+                   { description = "Stop", group = "Spotify" }
+                },
 	}
 
 	-- Client keys
