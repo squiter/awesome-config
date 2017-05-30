@@ -26,8 +26,6 @@ function layouts:init(args)
 		awful.layout.suit.fair,
 		awful.layout.suit.max,
 		awful.layout.suit.max.fullscreen,
-		redflat.layout.grid,
-		redflat.layout.map,
 	}
 
 	awful.layout.layouts = layset
