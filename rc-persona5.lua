@@ -27,6 +27,9 @@ awful.util.spawn_with_shell("rescuetime")
 -- indicator-sound-switcher
 awful.util.spawn_with_shell("indicator-sound-switcher")
 
+-- caffeine-indicator
+awful.util.spawn("caffeine-indicator")
+
 -- User modules
 ------------------------------------------------------------
 local redflat = require("redflat")
