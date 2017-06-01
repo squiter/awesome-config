@@ -25,10 +25,10 @@ awful.util.spawn_with_shell("~/scripts/set-keyboard")
 awful.util.spawn_with_shell("rescuetime")
 
 -- indicator-sound-switcher
-awful.util.spawn_with_shell("indicator-sound-switcher")
+awful.util.spawn_with_shell('flock -w 0 /tmp/sound-switcher.lock -c "indicator-sound-switcher"')
 
 -- caffeine-indicator
-awful.util.spawn("caffeine-indicator")
+awful.util.spawn('flock -w 0 /tmp/caffeine.lock -c "caffeine-indicator"')
 
 -- User modules
 ------------------------------------------------------------
