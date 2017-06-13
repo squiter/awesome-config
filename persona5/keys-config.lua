@@ -422,11 +422,6 @@ function hotkeys:init(args)
 			{ env.mod }, "Left", awful.tag.viewprev,
 			{ description = "View previous tag", group = "Tag navigation" }
 		},
-
-		{
-			{ env.mod }, "y", function() laybox:toggle_menu(mouse.screen.selected_tag) end,
-			{ description = "Show layout menu", group = "Layouts" }
-		},
 		{
 			{ env.mod }, "space", function() awful.layout.inc(1) end,
 			{ description = "Select next layout", group = "Layouts" }
