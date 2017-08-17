@@ -47,6 +47,7 @@ function menu:init(args)
 			{ "Test Item 1", function() naughty.notify({ text = "Test menu 1" }) end, key = "i" },
 			{ "Test Item 2", function() naughty.notify({ text = "Test menu 2" }) end, key = "m" },
 			separator,
+                        { "Shutdown", awesome.shutdown, },
 			{ "Restart", awesome.restart, },
 			{ "Exit",    awesome.quit, },
 		}
